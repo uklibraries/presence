@@ -1,6 +1,10 @@
 Presence::Application.routes.draw do
   root :to => "catalog#index"
 
+  get 'catalog/download', :as => 'download_catalog'
+  get 'catalog/share', :as => 'share_catalog'
+  get 'catalog/revise', :as => 'revise_catalog'
+  get 'catalog/withdraw', :as => 'withdraw_catalog'
   Blacklight.add_routes(self)
 
   # The priority is based upon order of creation:

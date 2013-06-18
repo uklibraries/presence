@@ -192,6 +192,43 @@ class CatalogController < ApplicationController
     config.spell_max = 5
   end
 
+  def download
+    @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key, params[:id])
+    unless !request.xhr? && flash[:success]
+      respond_to do |format|
+        format.js { render :layout => false }
+        format.html
+      end
+    end
+  end
 
+  def share
+    @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key, params[:id])
+    unless !request.xhr? && flash[:success]
+      respond_to do |format|
+        format.js { render :layout => false }
+        format.html
+      end
+    end
+  end
 
+  def revise
+    @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key, params[:id])
+    unless !request.xhr? && flash[:success]
+      respond_to do |format|
+        format.js { render :layout => false }
+        format.html
+      end
+    end
+  end
+
+  def withdraw
+    @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key, params[:id])
+    unless !request.xhr? && flash[:success]
+      respond_to do |format|
+        format.js { render :layout => false }
+        format.html
+      end
+    end
+  end
 end 

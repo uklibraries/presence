@@ -3,3 +3,28 @@
 
 en:
   hello: "Hello world"
+
+  blacklight:
+    application_name: 'Presence'
+
+    tools:
+      download: 'Download'
+      share: 'Share'
+      revise: 'Edit'
+      withdraw: 'Withdraw'
+    
+    download:
+      title: 'Download'
+      text: 'Download this item.'
+
+    share:
+      title: 'Share'
+      text: 'Share this item.'
+
+    revise:
+      title: 'Edit'
+      text: 'Edit this item.'
+
+    withdraw:
+      title: 'Withdraw'
+      text: 'Withdraw this item from the repository.'

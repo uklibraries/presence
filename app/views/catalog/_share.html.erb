@@ -1,0 +1,10 @@
+<%- unless flash[:success] %>
+  <div class="modal-body">
+    <p><%= t('blacklight.share.text') %></p>
+  </div>
+<%- else %>
+  <div class="modal-body">
+    <%= render :partial => '/flash_msg' %>
+    <span class="ajax-close-modal"/>
+  </div>
+<%- end %>
