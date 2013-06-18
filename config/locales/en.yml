@@ -13,6 +13,17 @@ en:
       revise: 'Edit'
       withdraw: 'Withdraw'
     
+    email:
+      form:
+        from: 'Name'
+      errors:
+        from:
+          blank: 'You must enter your name in order to send this message'
+      text:
+        subject:
+          one: 'comment on a Presence record'
+          other: 'comment on records'
+
     download:
       title: 'Download'
       text: 'Download this item.'

@@ -231,4 +231,35 @@ class CatalogController < ApplicationController
       end
     end
   end
+
+  # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
+  def email
+    @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key,params[:id])
+    if request.post?
+      if params[:from]
+        url_gen_params = {:host => request.host_with_port, :protocol => request.protocol}
+        
+        if params[:from].length > 0
+          email = RecordMailer.email_record(@documents, {:from => params[:from], :message => params[:message]}, url_gen_params)
+        else
+          flash[:error] = I18n.t('blacklight.email.errors.from.blank')
+        end
+      else
+        flash[:error] = I18n.t('blacklight.email.errors.from.blank')
+      end
+
+      unless flash[:error]
+        email.deliver 
+        flash[:success] = "Email sent"
+        redirect_to catalog_path(params['id']) unless request.xhr?
+      end
+    end
+
+    unless !request.xhr? && flash[:success]
+      respond_to do |format|
+        format.js { render :layout => false }
+        format.html
+      end
+    end
+  end
 end 
