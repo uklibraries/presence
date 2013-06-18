@@ -7,8 +7,8 @@ blacklight/bul_sq_gry.gif: blacklight/bul_sq_gry-6c7d11ba92cdc4931fb2a6a7ac9227f
 blacklight/bul_sq_gry/index.gif: blacklight/bul_sq_gry-6c7d11ba92cdc4931fb2a6a7ac9227f6.gif
 blacklight/checkmark.gif: blacklight/checkmark-090616ffe181a8683477b532cf1fb0ac.gif
 blacklight/checkmark/index.gif: blacklight/checkmark-090616ffe181a8683477b532cf1fb0ac.gif
-blacklight/logo.png: blacklight/logo-d89cc1b7dd046351e13bb5273a5808fd.png
-blacklight/logo/index.png: blacklight/logo-d89cc1b7dd046351e13bb5273a5808fd.png
+blacklight/logo.png: blacklight/logo-64dec0e1bba0acbb45455272befe50a5.png
+blacklight/logo/index.png: blacklight/logo-64dec0e1bba0acbb45455272befe50a5.png
 blacklight/magnifying_glass.gif: blacklight/magnifying_glass-5aaba5993d0eb876d9cf1a5c39425852.gif
 blacklight/magnifying_glass/index.gif: blacklight/magnifying_glass-5aaba5993d0eb876d9cf1a5c39425852.gif
 blacklight/remove.gif: blacklight/remove-65fdf5b4007d0ecef420d8b28bbad26e.gif
@@ -21,8 +21,8 @@ rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 application.js: application-b0c72aa25121477c140332a9b24a9088.js
 application/index.js: application-b0c72aa25121477c140332a9b24a9088.js
-application.css: application-d951a06b95ef57aad2ad3fcf95fbad83.css
-application/index.css: application-d951a06b95ef57aad2ad3fcf95fbad83.css
+application.css: application-661ecdf278e38c3832218fae94aee3c8.css
+application/index.css: application-661ecdf278e38c3832218fae94aee3c8.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
