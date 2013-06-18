@@ -732,56 +732,56 @@
        -->
 
        <str name="qf">
-         access_t
-         contributor_t
-         coverage_t
-         creator_t
-         date_original_s
-         date_submit_t
-         date_upload_s
-         date_year_i
-         description_t
-         format_t
-         identifier_s
-         language_t
-         publisher_t
-         relation_s
-         retention_t
-         rights_t
-         source_t
-         subject_t
-         title_s
-         type_s
-         what_s
-         when_s
-         where_s
-         who_s
+         access_t^1000
+         contributor_t^1000
+         coverage_t^1000
+         creator_t^1000
+         date_original_s^1000
+         date_submit_t^1000
+         date_upload_s^1000
+         date_year_i^1000
+         description_t^1000
+         format_t^1000
+         identifier_s^1000
+         language_t^1000
+         publisher_t^1000
+         relation_s^1000
+         retention_t^1000
+         rights_t^1000
+         source_t^1000
+         subject_t^1000
+         title_s^1000
+         type_s^1000
+         what_s^1000
+         when_i^1000
+         where_s^1000
+         who_s^1000
        </str>
        <str name="pf">
-         access_t
-         contributor_t
-         coverage_t
-         creator_t
-         date_original_s
-         date_submit_t
-         date_upload_s
-         date_year_i
-         description_t
-         format_t
-         identifier_s
-         language_t
-         publisher_t
-         relation_s
-         retention_t
-         rights_t
-         source_t
-         subject_t
-         title_s
-         type_s
-         what_s
-         when_s
-         where_s
-         who_s
+         access_t^1000
+         contributor_t^1000
+         coverage_t^1000
+         creator_t^1000
+         date_original_s^1000
+         date_submit_t^1000
+         date_upload_s^1000
+         date_year_i^1000
+         description_t^1000
+         format_t^1000
+         identifier_s^1000
+         language_t^1000
+         publisher_t^1000
+         relation_s^1000
+         retention_t^1000
+         rights_t^1000
+         source_t^1000
+         subject_t^1000
+         title_s^1000
+         type_s^1000
+         what_s^1000
+         when_i^1000
+         where_s^1000
+         who_s^1000
        </str>
        <str name="author_qf">
          author_unstem_search^200
@@ -865,7 +865,7 @@
          date_upload_s,
          who_s,
          what_s,
-         when_s,
+         when_i,
          where_s,
          publisher_t,
          contributor_t,
@@ -1083,7 +1083,7 @@
         date_upload_s,
         who_s,
         what_s,
-        when_s,
+        when_i,
         where_s,
         publisher_t,
         contributor_t,
