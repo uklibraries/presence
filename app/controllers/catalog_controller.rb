@@ -232,6 +232,16 @@ class CatalogController < ApplicationController
     end
   end
 
+  def view_contents
+    @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key, params[:id])
+    unless !request.xhr? && flash[:success]
+      respond_to do |format|
+        format.js { render :layout => false }
+        format.html
+      end
+    end
+  end
+
   # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
   def email
     @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key,params[:id])

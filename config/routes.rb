@@ -5,6 +5,7 @@ Presence::Application.routes.draw do
   get 'catalog/share', :as => 'share_catalog'
   get 'catalog/revise', :as => 'revise_catalog'
   get 'catalog/withdraw', :as => 'withdraw_catalog'
+  get 'catalog/view_contents', :as => 'view_contents_catalog'
   Blacklight.add_routes(self)
 
   # The priority is based upon order of creation:

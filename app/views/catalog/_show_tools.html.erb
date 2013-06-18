@@ -26,6 +26,9 @@
         <li class="withdraw">
           <%= link_to t('blacklight.tools.withdraw'), withdraw_catalog_path(:id => @document), {:id => 'withdrawLink', :class => 'lightboxLink'} %>
         </li>
+        <li class="view_contents">
+          <%= link_to t('blacklight.tools.view_contents'), view_contents_catalog_path(:id => @document), {:id => 'view_contentsLink', :class => 'lightboxLink'} %>
+        </li>
       <% if (@document.respond_to?(:export_as_mla_citation_txt) || @document.respond_to?(:export_as_apa_citation_txt)) %>
         <li class="cite">
          <%= link_to t('blacklight.tools.cite'), citation_catalog_path(:id => @document), {:id => 'citeLink', :class => 'lightboxLink'} %>

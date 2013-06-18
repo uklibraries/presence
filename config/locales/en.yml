@@ -39,3 +39,7 @@ en:
     withdraw:
       title: 'Withdraw'
       text: 'Withdraw this item from the repository.'
+
+    view_contents:
+      title: 'View Contents'
+      text: 'View the contents of this item.'
