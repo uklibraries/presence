@@ -14,6 +14,7 @@
         <%= render_show_doc_actions @document %>
       </li>
       <%# possibly protect with @document.respond_to? %>
+      <%- if @document[:status_s] == "active" %>
         <li class="download">
           <%= link_to t('blacklight.tools.download'), download_catalog_path(:id => @document), {:id => 'downloadLink', :class => 'lightboxLink'} %>
         </li>
@@ -29,6 +30,7 @@
         <li class="view_contents">
           <%= link_to t('blacklight.tools.view_contents'), view_contents_catalog_path(:id => @document), {:id => 'view_contentsLink', :class => 'lightboxLink'} %>
         </li>
+      <%- end %>
       <% if (@document.respond_to?(:export_as_mla_citation_txt) || @document.respond_to?(:export_as_apa_citation_txt)) %>
         <li class="cite">
          <%= link_to t('blacklight.tools.cite'), citation_catalog_path(:id => @document), {:id => 'citeLink', :class => 'lightboxLink'} %>
