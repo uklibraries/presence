@@ -15,5 +15,8 @@
 /tmp
 *.sw?
 
+# Ignore precompiled assets
+/public/assets
+
 # Ignore secret token
 /config/initializers/secret_token.rb
