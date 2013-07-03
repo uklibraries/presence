@@ -1,0 +1,26 @@
+<h2>Users</h2>
+
+<% if can? :manage, :users %>
+
+<table class="table table-striped">
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Admin</th>
+    <th>Uploader</th>
+    <th><%# edit %></th>
+    <th><%# destroy %></th>
+  </tr>
+  
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.username %></td>
+    <td><%= user.email %></td>
+    <td><%= user.role? :admin %></td>
+    <td><%= user.role? :uploader %></td>
+    <td><%= link_to "Edit", root_path %></td>
+    <td><%= link_to "Destroy", root_path %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>

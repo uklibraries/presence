@@ -39,5 +39,7 @@ gem 'jquery-rails'
 
 gem 'blacklight'
 gem 'bootstrap-sass'
+gem 'cancan'
 gem 'devise'
 gem 'devise_ldap_authenticatable'
+gem 'simple_form'

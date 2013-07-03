@@ -1,5 +1,6 @@
 Presence::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
+  resources :user, :controller => "user"
 
   root :to => "catalog#index"
 
