@@ -18,5 +18,7 @@
 # Ignore precompiled assets
 /public/assets
 
-# Ignore secret token
+# Ignore secret token and such
 /config/initializers/secret_token.rb
+/config/ldap.yml
+/config/database.yml

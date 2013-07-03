@@ -1,4 +1,6 @@
 Presence::Application.routes.draw do
+  devise_for :users
+
   root :to => "catalog#index"
 
   get 'catalog/download', :as => 'download_catalog'
