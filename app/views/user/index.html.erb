@@ -1,6 +1,6 @@
 <h2>Users</h2>
 
-<% if can? :manage, :users %>
+<% if can? :manage, User %>
 
 <table class="table table-striped">
   <tr>
@@ -18,8 +18,8 @@
     <td><%= user.email %></td>
     <td><%= user.role? :admin %></td>
     <td><%= user.role? :uploader %></td>
-    <td><%= link_to "Edit", root_path %></td>
-    <td><%= link_to "Destroy", root_path %></td>
+    <td><%= link_to "Edit", edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

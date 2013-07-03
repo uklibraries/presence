@@ -1,0 +1,10 @@
+<%= form_for(@user) do |f| %>
+  <% User::ROLES.each do |role| %>
+  <div>
+    <%= check_box_tag "user[roles][#{role}]", role, @user.roles.include?(role), {:name => "user[roles][]"} %>
+    <%= label_tag "user_roles_#{role}", role.to_s.humanize %>
+  </div>
+  <%= hidden_field_tag "user[roles][]", "" %>
+  <% end %>
+  <div><%= f.submit "Submit" %></div>
+<% end %>

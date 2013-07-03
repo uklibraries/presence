@@ -43,3 +43,6 @@ en:
     view_contents:
       title: 'View Contents'
       text: 'View the contents of this item.'
+
+    header_links:
+       manage_users: 'Manage Users'
