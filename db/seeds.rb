@@ -1,13 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+class Seed
+  FIXTURES = File.join 'db', 'fixtures'
 
-formats = Nokogiri::XML IO.read(File.join('db', 'fixtures', 'formats.xml'))
+  def initialize(options)
+    @symbol = options[:symbol]
+    @file = File.join FIXTURES, "#{@symbol.to_s.pluralize}.xml"
+    @query = options[:query] || '//xs:enumeration'
+    @model = @symbol.to_s.capitalize.constantize
+    @field = options[:field] || 'value'
+  end
 
-formats.xpath('//xs:enumeration').each do |format|
-  Format.find_or_create_by_name(format['value'])
+  def plant
+    Nokogiri::XML(IO.read @file).
+    xpath(@query).each do |node|
+      @model.find_or_create_by_name(node[@field])
+    end
+  end
+end
+
+[
+  :format,
+  :type,
+].each do |symbol|
+  seed = Seed.new :symbol => symbol
+  seed.plant
 end
