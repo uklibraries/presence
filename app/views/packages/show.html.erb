@@ -1,0 +1,49 @@
+<h2><%= @package.title %></h2>
+
+<% [
+     :creator,
+     :title,
+     # :date deliberately missing
+     :access,
+     :retention,
+     # optional fields follwo
+     :contributor,
+     :coverage,
+     :description,
+     :format,
+     # :identifier deliberately missing
+     :language,
+     :publisher,
+     :relation,
+     :rights,
+     :source,
+   ].each do |field| -%>
+<p>
+  <b><%= field.to_s.humanize %>:</b>
+  <%= @package.send(field) %>
+</p>
+<% end -%>
+
+<% if @subjects -%>
+<p>
+  <b>Subjects:</b> <br/ >
+  <ul>
+    <% @subjects.each do |subject| -%>
+    <li><%= subject.subject %></li>
+    <% end -%>
+  </ul>
+</p>
+<% end -%>
+
+
+<% [
+     :type,
+   ].each do |field| -%>
+<p>
+  <b><%= field.to_s.humanize %>:</b>
+  <%= @package.send(field) %>
+</p>
+<% end -%>
+
+<%= link_to 'Edit', edit_package_path(@package) %> |
+<%= link_to 'Back', packages_path %>

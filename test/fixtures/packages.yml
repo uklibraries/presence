@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  who: MyString
+  what: MyString
+  when: 1
+  where: MyString
+  contributor: MyString
+  coverage: MyString
+  creator: MyString
+  description: MyString
+  format: MyString
+  identifier: MyString
+  language: MyString
+  publisher: MyString
+  relation: MyString
+  rights: MyString
+  source: MyString
+  title: MyString
+  type: 
+  access: MyString
+  retention: MyString
+  status: MyString
+
+two:
+  user: 
+  who: MyString
+  what: MyString
+  when: 1
+  where: MyString
+  contributor: MyString
+  coverage: MyString
+  creator: MyString
+  description: MyString
+  format: MyString
+  identifier: MyString
+  language: MyString
+  publisher: MyString
+  relation: MyString
+  rights: MyString
+  source: MyString
+  title: MyString
+  type: 
+  access: MyString
+  retention: MyString
+  status: MyString

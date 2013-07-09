@@ -6,7 +6,10 @@ class Ability
     can :read, :all
 
     if user.role? :admin
-      can :manage, User
+      can :manage, :all
+    elsif user.role? :uploader
+      can :manage, Package, :user_id => user.id
+      can :manage, Subject, :user_id => user.id
     end
   end
 end

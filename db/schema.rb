@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703122953) do
+ActiveRecord::Schema.define(:version => 20130708184634) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id",     :null => false
@@ -20,6 +20,49 @@ ActiveRecord::Schema.define(:version => 20130703122953) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "user_type"
+  end
+
+  create_table "package_subject_vocabularies", :force => true do |t|
+    t.integer  "package_id"
+    t.integer  "subject_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "package_subject_vocabularies", ["package_id"], :name => "index_package_subject_vocabularies_on_package_id"
+  add_index "package_subject_vocabularies", ["subject_id"], :name => "index_package_subject_vocabularies_on_subject_id"
+
+  create_table "packages", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "who"
+    t.string   "what"
+    t.integer  "when"
+    t.string   "where"
+    t.string   "contributor"
+    t.string   "coverage"
+    t.string   "creator"
+    t.string   "description"
+    t.string   "format"
+    t.string   "identifier"
+    t.string   "language"
+    t.string   "publisher"
+    t.string   "relation"
+    t.string   "rights"
+    t.string   "source"
+    t.string   "title"
+    t.string   "type"
+    t.string   "access"
+    t.string   "retention"
+    t.string   "status"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "packages", ["user_id"], :name => "index_packages_on_user_id"
+
+  create_table "packages_subjects", :force => true do |t|
+    t.integer "package_id"
+    t.integer "subject_id"
   end
 
   create_table "searches", :force => true do |t|
@@ -31,6 +74,15 @@ ActiveRecord::Schema.define(:version => 20130703122953) do
   end
 
   add_index "searches", ["user_id"], :name => "index_searches_on_user_id"
+
+  create_table "subjects", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "subject"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "subjects", ["user_id"], :name => "index_subjects_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

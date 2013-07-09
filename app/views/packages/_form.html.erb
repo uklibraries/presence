@@ -1,0 +1,32 @@
+<%= simple_form_for(@package) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= field_set_tag "Required fields" do -%>
+      <%= f.input :creator %>
+      <%= f.input :title %>
+      <p><b>Date</b> deliberately missing</p>
+      <%= f.input :access %>
+      <%= f.input :retention %>
+    <% end -%>
+
+    <%= field_set_tag "Additional fields (optional)" do -%>
+      <%= f.input :contributor %>
+      <%= f.input :coverage %>
+      <%= f.input :description %>
+      <%= f.input :format %>
+      <p><b>Identifier</b> deliberately missing</p>
+      <%= f.input :language %>
+      <%= f.input :publisher %>
+      <%= f.input :relation %>
+      <%= f.input :rights %>
+      <%= f.input :source %>
+      <%= f.association :subjects, label_method: :subject %>
+      <%= f.input :type %>
+    <% end -%>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

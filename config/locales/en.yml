@@ -45,4 +45,5 @@ en:
       text: 'View the contents of this item.'
 
     header_links:
-       manage_users: 'Manage Users'
+       packages: 'Packages'
+       manage_users: 'Users'

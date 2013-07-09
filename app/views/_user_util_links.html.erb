@@ -2,6 +2,12 @@
     <div class="util-links-login">
       <% if current_user %>
         <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, :method => :delete %> <%= "[#{ link_to current_user, edit_user_registration_path }]".html_safe unless current_user.to_s.blank? %>
+        <% if can? :manage, Package %>
+        | <%= link_to t('blacklight.header_links.packages'), packages_path %>
+        <% end %>
+        <% if can? :manage, Subject %>
+        | <%= link_to t('blacklight.header_links.subjects'), subjects_path %>
+        <% end %>
         <% if can? :manage, User %>
         | <%= link_to t('blacklight.header_links.manage_users'), user_index_path %>
         <% end %>
