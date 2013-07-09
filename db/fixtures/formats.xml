@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           attributeFormDefault="unqualified">
+
+  <xs:annotation>
+    <xs:documentation xml:lang="en">
+      DCMI Format Vocabulary XML Schema
+
+      Created 2013-01-01
+
+      Created by 
+
+      Eric Weig (eweig@email.uky.edu)
+
+
+      This schema defines a simpleFormat which enumerates
+      the allowable values for the DCMI Format Vocabulary for the Kentucky Digital Library.  These are a subset selected from the Art &amp; Architecture Thesaurus (ATT) aside from one local term '[mixed materials]'.  This term is an attempt on our part to allow for the format identification of archival materials of a mixed nature, such as a folder full of materials in a collection digitized at the folder level only.
+    </xs:documentation>
+
+ 
+  </xs:annotation>
+
+
+  <xs:simpleFormat name="DCMIFormat">
+     <xs:union>
+        <xs:simpleFormat>
+           <xs:restriction base="xs:Name">
+    <xs:enumeration value="Books"/>
+    <xs:enumeration value="Newspapers"/>
+    <xs:enumeration value="Minutes"/>
+    <xs:enumeration value="Journals (periodicals)"/>
+    <xs:enumeration value="Yearbooks"/>
+    <xs:enumeration value="Images (object genre)"/>
+    <xs:enumeration value="Catalogs"/>
+    <xs:enumeration value="Serials (publications)"/>
+    <xs:enumeration value="Theses"/>
+    <xs:enumeration value="Directories"/>
+    <xs:enumeration value="Finding aids"/>
+    <xs:enumeration value="Maps"/>
+    <xs:enumeration value="Oral histories (document genres)"/>
+    <xs:enumeration value="Sound recordings"/>
+    <xs:enumeration value="Video recordings"/>
+    <xs:enumeration value="[mixed materials]"/>
+    <xs:enumeration value="Correspondence"/>
+    <xs:enumeration value="Art (fine art) or visual arts [or include this in images]"/>
+    <xs:enumeration value="Publications (instead of journals, catalogs, serials?)"/>
+    <xs:enumeration value="Scrapbooks"/>
+    <xs:enumeration value="Diaries"/>
+            </xs:restriction>
+        </xs:simpleFormat> 
+     </xs:union>
+  </xs:simpleFormat>
+
+</xs:schema>

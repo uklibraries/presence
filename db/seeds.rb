@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+formats = Nokogiri::XML IO.read(File.join('db', 'fixtures', 'formats.xml'))
+
+formats.xpath('//xs:enumeration').each do |format|
+  Format.find_or_create_by_name(format['value'])
+end
