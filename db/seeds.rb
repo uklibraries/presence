@@ -1,5 +1,6 @@
+FIXTURES = File.join 'db', 'fixtures'
+
 class Seed
-  FIXTURES = File.join 'db', 'fixtures'
 
   def initialize(options)
     @symbol = options[:symbol]
@@ -23,4 +24,21 @@ end
 ].each do |symbol|
   seed = Seed.new :symbol => symbol
   seed.plant
+end
+
+file = File.join FIXTURES, 'ISO-639-2_utf-8.txt'
+IO.readlines(file).each do |line|
+  line.strip!
+  alpha3_bib, 
+    alpha3_term, 
+    alpha2, 
+    english, 
+    french = line.split('|')
+  Language.where(
+    name: english,
+    name_fr: french,
+    alpha3_bib: alpha3_bib,
+    alpha3_term: alpha3_term,
+    alpha2: alpha2
+  ).first_or_create
 end

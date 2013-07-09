@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  name_fr: MyString
+  alpha3_bib: MyString
+  alpha3_term: MyString
+  alpha2: MyString
+
+two:
+  name: MyString
+  name_fr: MyString
+  alpha3_bib: MyString
+  alpha3_term: MyString
+  alpha2: MyString

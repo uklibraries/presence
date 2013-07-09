@@ -10,9 +10,26 @@
      :contributor,
      :coverage,
      :description,
-     :format,
-     # :identifier deliberately missing
-     :language,
+   ].each do |field| -%>
+<p>
+  <b><%= field.to_s.humanize %>:</b>
+  <%= @package.send(field) %>
+</p>
+<% end -%>
+
+<p>
+  <b>Format:</b>
+  <%= @package.format.name %>
+</p>
+
+<%# :identifier deliberately missing %>
+
+<p>
+  <b>Language:</b>
+  <%= @package.language.name %>
+</p>
+
+<% [
      :publisher,
      :relation,
      :rights,
@@ -35,15 +52,10 @@
 </p>
 <% end -%>
 
-
-<% [
-     :type,
-   ].each do |field| -%>
 <p>
-  <b><%= field.to_s.humanize %>:</b>
-  <%= @package.send(field) %>
+  <b>Type:</b>
+  <%= @package.type.name %>
 </p>
-<% end -%>
 
 <%= link_to 'Edit', edit_package_path(@package) %> |
 <%= link_to 'Back', packages_path %>

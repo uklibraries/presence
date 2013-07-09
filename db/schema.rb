@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709123904) do
+ActiveRecord::Schema.define(:version => 20130709130937) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id",     :null => false
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(:version => 20130709123904) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "languages", :force => true do |t|
+    t.string   "name"
+    t.string   "name_fr"
+    t.string   "alpha3_bib"
+    t.string   "alpha3_term"
+    t.string   "alpha2"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "package_subject_vocabularies", :force => true do |t|
@@ -49,7 +59,6 @@ ActiveRecord::Schema.define(:version => 20130709123904) do
     t.string   "creator"
     t.string   "description"
     t.string   "identifier"
-    t.string   "language"
     t.string   "publisher"
     t.string   "relation"
     t.string   "rights"
@@ -62,9 +71,11 @@ ActiveRecord::Schema.define(:version => 20130709123904) do
     t.datetime "updated_at",  :null => false
     t.integer  "format_id"
     t.integer  "type_id"
+    t.integer  "language_id"
   end
 
   add_index "packages", ["format_id"], :name => "index_packages_on_format_id"
+  add_index "packages", ["language_id"], :name => "index_packages_on_language_id"
   add_index "packages", ["type_id"], :name => "index_packages_on_type_id"
   add_index "packages", ["user_id"], :name => "index_packages_on_user_id"
 
