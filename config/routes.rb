@@ -1,6 +1,5 @@
 Presence::Application.routes.draw do
-  #devise_for :users, :controllers => {:registrations => "registrations"}
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   resources :user, :controller => "user"
   resources :packages
   resources :subjects
