@@ -10,6 +10,8 @@ class PackagesController < ApplicationController
 
   def show
     @subjects = @package.subjects
+    @assets = @package.assets
+    @new_asset = @package.assets.build
     respond_with(@package)
   end
 

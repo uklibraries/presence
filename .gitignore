@@ -15,10 +15,12 @@
 /tmp
 *.sw?
 
-# Ignore precompiled assets
+# Ignore precompiled assets and user-uploaded files
 /public/assets
+/uploads
 
 # Ignore secret token and such
 /config/initializers/secret_token.rb
 /config/ldap.yml
 /config/database.yml
+

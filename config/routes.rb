@@ -1,7 +1,11 @@
 Presence::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :user, :controller => "user"
-  resources :packages
+  resources :packages do
+    resources :assets do
+      resources :chunks
+    end
+  end
   resources :subjects
 
   root :to => "catalog#index"

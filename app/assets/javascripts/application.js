@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require chosen-jquery
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
 //
 // Required by Blacklight
 //= require blacklight/blacklight

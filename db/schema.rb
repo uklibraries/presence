@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709130937) do
+ActiveRecord::Schema.define(:version => 20130712170558) do
+
+  create_table "assets", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "package_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "file"
+    t.integer  "size"
+  end
+
+  add_index "assets", ["package_id"], :name => "index_assets_on_package_id"
+  add_index "assets", ["user_id"], :name => "index_assets_on_user_id"
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id",     :null => false
@@ -21,6 +34,17 @@ ActiveRecord::Schema.define(:version => 20130709130937) do
     t.datetime "updated_at",  :null => false
     t.string   "user_type"
   end
+
+  create_table "chunks", :force => true do |t|
+    t.string   "chunk"
+    t.integer  "user_id"
+    t.integer  "asset_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "chunks", ["asset_id"], :name => "index_chunks_on_asset_id"
+  add_index "chunks", ["user_id"], :name => "index_chunks_on_user_id"
 
   create_table "formats", :force => true do |t|
     t.string   "name"
@@ -85,10 +109,10 @@ ActiveRecord::Schema.define(:version => 20130709130937) do
   end
 
   create_table "searches", :force => true do |t|
-    t.text     "query_params"
+    t.text     "query_params", :limit => 16777215
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "user_type"
   end
 

@@ -1,0 +1,5 @@
+  <tr>
+    <td><%= asset.name %></td>
+    <td><%#= link_to 'Edit', edit_asset_path(asset) %></td>
+    <td><%= link_to 'Destroy', [@package, @asset], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>

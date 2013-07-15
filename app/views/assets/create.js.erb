@@ -1,0 +1,5 @@
+<% if @asset.new_record? %>
+  alert("Failed to upload file: <%= j @asset.errors.full_messages.join(', ') %>");
+<% elsif 2+2 == 5 #@asset.uploaded? %>
+  $("#assets").append("<%= j render(@asset) %>");
+<% end %>

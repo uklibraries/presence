@@ -1,0 +1,23 @@
+<h3>Attached files</h3>
+
+<table id="assets" class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @assets.each do |asset| %>
+  <% unless asset.new_record? %>
+  <tr>
+    <td><%= asset.name %></td>
+    <td><%#= link_to 'Edit', edit_asset_path(asset) %></td>
+    <td><%= link_to 'Destroy', [@package, asset], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= render 'assets/form' %>

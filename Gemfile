@@ -20,6 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 
   gem 'chosen-rails'
+  gem 'jquery-fileupload-rails'
 end
 
 gem 'jquery-rails'
@@ -42,7 +43,9 @@ gem 'jquery-rails'
 gem 'blacklight'
 gem 'bootstrap-sass'
 gem 'cancan'
+gem 'carrierwave'
 gem 'devise'
 gem 'devise_ldap_authenticatable'
+gem 'fog', '~> 1.12.1'
 gem 'nokogiri'
 gem 'simple_form'
