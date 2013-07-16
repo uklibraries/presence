@@ -27,13 +27,12 @@ class ChunksController < ApplicationController
   end
 
   def create
-    logger.debug("DEBUG: ChunksController#create: #{params[:chunk].inspect}")
-    @chunk = @asset.chunks.build(params[:chunk])
+    @chunk = @asset.chunks.build(:chunk => params[:asset]["file"])
     @chunk.user_id = current_user.id
     if @chunk.save
       flash[:notice] = 'Chunk was successfully created.'
     end
-    respond_with(@package, @asset, @chunk)
+    render json: @chunk
   end
 
   def update

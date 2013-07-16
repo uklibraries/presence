@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130712170558) do
+ActiveRecord::Schema.define(:version => 20130716141143) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
     t.integer  "package_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "file"
     t.integer  "size"
+    t.boolean  "finalized",  :default => false
   end
 
   add_index "assets", ["package_id"], :name => "index_assets_on_package_id"

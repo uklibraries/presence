@@ -4,6 +4,11 @@ Presence::Application.routes.draw do
   resources :packages do
     resources :assets do
       resources :chunks
+      
+      # XXX: Move this to a member route. --mps 2013-07-16
+      collection do
+        post 'freeze'
+      end
     end
   end
   resources :subjects

@@ -25,25 +25,41 @@ class AssetsController < ApplicationController
     respond_with(@package)
   end
 
-  def create
-    logger.debug("DEBUG: AssetsController#create")
-    @asset = @package.assets.build(
+  def freeze
+    @asset = @package.assets.where(
       :name => params[:filename]
-    )
-    @asset.user_id = current_user.id
-    if @asset.save
-      render json: @asset
+    ).first
+    authorize! :manage, @asset
+    unless @asset.finalized?
+      @asset.finalized = true
+      if @asset.save
+        AssemblyWorker.perform_async(@asset.id)
+      end
     end
-    # Eager method:
-    #logger.debug("DEBUG: #{params[:asset].inspect}")
-    #@asset = @package.assets.first_or_create(
-    #  :name => params[:asset]["file"].original_filename
-    #)
-    #@chunk = @asset.chunks.build("chunk" => params[:asset]["file"])
-    #@chunk.user_id = current_user.id
-    #if @chunk.save
-    #  flash[:notice] = 'Asset was successfully created.'
-    #end
+    render json: {
+      :name => @asset.name,
+      :url => package_asset_path(@package, @asset)
+    }
+  end
+
+  def create
+    @asset = @package.assets.where(
+      :name => params[:asset]["file"].original_filename
+    ).first_or_create
+    @asset.user_id = current_user.id
+    authorize! :manage, @asset
+
+    # Only allow active uploads to be modified
+    return if @asset.finalized?
+
+    if @asset.save
+      @chunk = @asset.chunks.build("chunk" => params[:asset]["file"])
+      @chunk.user_id = current_user.id
+      authorize! :manage, @chunk
+      if @chunk.save
+        flash[:notice] = 'Asset was successfully created.'
+      end
+    end
   end
 
   def update
