@@ -49,6 +49,10 @@ class AssetsController < ApplicationController
     @asset.user_id = current_user.id
     authorize! :manage, @asset
 
+    if @package.identifier.nil? or @package.identifier.strip == ''
+      MintWorker.perform_async(@package.id)
+    end
+
     # Only allow active uploads to be modified
     return if @asset.finalized?
 

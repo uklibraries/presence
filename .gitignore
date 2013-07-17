@@ -23,4 +23,4 @@
 /config/initializers/secret_token.rb
 /config/ldap.yml
 /config/database.yml
-
+/config/minter.yml

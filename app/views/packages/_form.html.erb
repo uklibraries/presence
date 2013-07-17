@@ -15,7 +15,7 @@
       <%= f.input :coverage %>
       <%= f.input :description %>
       <%= f.association :format %>
-      <p><b>Identifier</b> deliberately missing</p>
+      <p>Identifier: <%= @package.identifier ? @package.identifier : 'not set' %></p>
       <%= f.association :language %>
       <%= f.input :publisher %>
       <%= f.input :relation %>

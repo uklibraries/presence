@@ -22,7 +22,10 @@
   <%= render(@package.format) if @package.format %>
 </p>
 
-<%# :identifier deliberately missing %>
+<p>
+  <b>Identifier:</b>
+  <%= @package.identifier %>
+</p>
 
 <p>
   <b>Language:</b>
