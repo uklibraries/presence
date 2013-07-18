@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130716141143) do
+ActiveRecord::Schema.define(:version => 20130718125236) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130716141143) do
     t.string   "file"
     t.integer  "size"
     t.boolean  "finalized",  :default => false
+    t.boolean  "assembled",  :default => false
   end
 
   add_index "assets", ["package_id"], :name => "index_assets_on_package_id"

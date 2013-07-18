@@ -18,6 +18,8 @@
 # Ignore precompiled assets and user-uploaded files
 /public/assets
 /uploads
+/sip-cache
+/solr-cache
 
 # Ignore secret token and such
 /config/initializers/secret_token.rb
