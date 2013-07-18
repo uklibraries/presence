@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           attributeFormDefault="unqualified">
+
+  <xs:annotation>
+    <xs:documentation xml:lang="en">
+      DCMI Retention Vocabulary XML Schema
+
+      Created 2013-07-00
+
+      Created by 
+
+      Eric Weig (eweig@email.uky.edu)
+
+
+      This schema defines a simpleRetention which enumerates
+      the allowable values for the DCMI Retention Vocabulary for the Kentucky Digital Library.  
+    </xs:documentation>
+
+ 
+  </xs:annotation>
+
+
+  <xs:simpleRetention name="DCMIRetention">
+     <xs:union>
+        <xs:simpleRetention>
+           <xs:restriction base="xs:Name">
+    <xs:enumeration value="Preservation"/>
+    <xs:enumeration value="Temporal"/>
+            </xs:restriction>
+        </xs:simpleRetention> 
+     </xs:union>
+  </xs:simpleRetention>
+
+</xs:schema>

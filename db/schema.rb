@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718125236) do
+ActiveRecord::Schema.define(:version => 20130718150507) do
+
+  create_table "accesses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -90,24 +96,33 @@ ActiveRecord::Schema.define(:version => 20130718125236) do
     t.string   "rights"
     t.string   "source"
     t.string   "title"
-    t.string   "access"
-    t.string   "retention"
     t.string   "status"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "format_id"
     t.integer  "type_id"
     t.integer  "language_id"
+    t.date     "date"
+    t.integer  "access_id"
+    t.integer  "retention_id"
   end
 
+  add_index "packages", ["access_id"], :name => "index_packages_on_access_id"
   add_index "packages", ["format_id"], :name => "index_packages_on_format_id"
   add_index "packages", ["language_id"], :name => "index_packages_on_language_id"
+  add_index "packages", ["retention_id"], :name => "index_packages_on_retention_id"
   add_index "packages", ["type_id"], :name => "index_packages_on_type_id"
   add_index "packages", ["user_id"], :name => "index_packages_on_user_id"
 
   create_table "packages_subjects", :force => true do |t|
     t.integer "package_id"
     t.integer "subject_id"
+  end
+
+  create_table "retentions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "searches", :force => true do |t|

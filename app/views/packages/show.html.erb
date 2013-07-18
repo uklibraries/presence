@@ -1,63 +1,34 @@
 <h2><%= @package.title %></h2>
 
+<p>
+  <b>Who (Creator)</b>
+  <%= @package.creator %>
+</p>
+
+<p>
+  <b>What (Title)</b>
+  <%= @package.title %>
+</p>
+
+<p>
+  <b>When (Date)</b>
+  <%= @package.date %>
+</p>
+
 <% [
-     :creator,
-     :title,
-     # :date deliberately missing
      :access,
      :retention,
      # optional fields follow
-     :contributor,
-     :coverage,
-     :description,
    ].each do |field| -%>
 <p>
   <b><%= field.to_s.humanize %>:</b>
-  <%= @package.send(field) %>
+  <%= render @package.send(field) %>
 </p>
 <% end -%>
-
-<p>
-  <b>Format:</b>
-  <%= render(@package.format) if @package.format %>
-</p>
 
 <p>
   <b>Identifier:</b>
   <%= @package.identifier %>
-</p>
-
-<p>
-  <b>Language:</b>
-  <%= render(@package.language) if @package.language %>
-</p>
-
-<% [
-     :publisher,
-     :relation,
-     :rights,
-     :source,
-   ].each do |field| -%>
-<p>
-  <b><%= field.to_s.humanize %>:</b>
-  <%= @package.send(field) %>
-</p>
-<% end -%>
-
-<% if @subjects -%>
-<p>
-  <b>Subjects:</b> <br/ >
-  <ul>
-    <% @subjects.each do |subject| -%>
-    <li><%= subject.subject %></li>
-    <% end -%>
-  </ul>
-</p>
-<% end -%>
-
-<p>
-  <b>Type:</b>
-  <%= render(@package.type) if @package.type %>
 </p>
 
 <%= render 'assets/index' %>

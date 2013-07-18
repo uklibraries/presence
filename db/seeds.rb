@@ -19,7 +19,9 @@ class Seed
 end
 
 [
+  :access,
   :format,
+  :retention,
   :type,
 ].each do |symbol|
   seed = Seed.new :symbol => symbol

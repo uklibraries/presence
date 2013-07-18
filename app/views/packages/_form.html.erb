@@ -3,26 +3,11 @@
 
   <div class="form-inputs">
     <%= field_set_tag "Required fields" do -%>
-      <%= f.input :creator %>
-      <%= f.input :title %>
-      <p><b>Date</b> deliberately missing</p>
-      <%= f.input :access %>
-      <%= f.input :retention %>
-    <% end -%>
-
-    <%= field_set_tag "Additional fields (optional)" do -%>
-      <%= f.input :contributor %>
-      <%= f.input :coverage %>
-      <%= f.input :description %>
-      <%= f.association :format %>
-      <p>Identifier: <%= @package.identifier ? @package.identifier : 'not set' %></p>
-      <%= f.association :language %>
-      <%= f.input :publisher %>
-      <%= f.input :relation %>
-      <%= f.input :rights %>
-      <%= f.input :source %>
-      <%= f.association :subjects, label_method: :subject %>
-      <%= f.association :type %>
+      <%= f.input :creator, label: "Who (Creator)" %>
+      <%= f.input :title, label: "What (Title)" %>
+      <%= f.input :date, label: "When (Date)", as: :date_picker %>
+      <%= f.association :access %>
+      <%= f.association :retention %>
     <% end -%>
   </div>
 

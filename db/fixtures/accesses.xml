@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           attributeFormDefault="unqualified">
+
+  <xs:annotation>
+    <xs:documentation xml:lang="en">
+      DCMI Access Vocabulary XML Schema
+
+      Created 2013-07-00
+
+      Created by 
+
+      Eric Weig (eweig@email.uky.edu)
+
+
+      This schema defines a simpleAccess which enumerates
+      the allowable values for the DCMI Access Vocabulary for the Kentucky Digital Library.  
+    </xs:documentation>
+
+ 
+  </xs:annotation>
+
+
+  <xs:simpleAccess name="DCMIAccess">
+     <xs:union>
+        <xs:simpleAccess>
+           <xs:restriction base="xs:Name">
+    <xs:enumeration value="Secure"/>
+    <xs:enumeration value="Restricted"/>
+    <xs:enumeration value="Internal/Non-Public"/>
+    <xs:enumeration value="Public"/>
+            </xs:restriction>
+        </xs:simpleAccess> 
+     </xs:union>
+  </xs:simpleAccess>
+
+</xs:schema>
