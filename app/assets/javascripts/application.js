@@ -16,6 +16,8 @@
 //= require chosen-jquery
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
+//= require underscore
+//= require dependent-fields
 //
 // Required by Blacklight
 //= require blacklight/blacklight

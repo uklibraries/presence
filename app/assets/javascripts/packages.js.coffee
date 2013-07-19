@@ -9,3 +9,4 @@ jQuery ->
    dateFormat: "yy-mm-dd"
    changeYear: true
    yearRange: "c-100:c+10"
+ DependentFields.bind()

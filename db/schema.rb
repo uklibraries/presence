@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718150507) do
+ActiveRecord::Schema.define(:version => 20130718170956) do
 
   create_table "accesses", :force => true do |t|
     t.string   "name"
@@ -97,14 +97,15 @@ ActiveRecord::Schema.define(:version => 20130718150507) do
     t.string   "source"
     t.string   "title"
     t.string   "status"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "format_id"
     t.integer  "type_id"
     t.integer  "language_id"
     t.date     "date"
     t.integer  "access_id"
     t.integer  "retention_id"
+    t.date     "retention_date"
   end
 
   add_index "packages", ["access_id"], :name => "index_packages_on_access_id"

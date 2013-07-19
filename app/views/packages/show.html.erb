@@ -18,11 +18,19 @@
 <% [
      :access,
      :retention,
-     # optional fields follow
    ].each do |field| -%>
 <p>
   <b><%= field.to_s.humanize %>:</b>
+  <% if @package.send(field) -%>
   <%= render @package.send(field) %>
+  <% end -%>
+</p>
+<% end -%>
+
+<% if @package.retention_id == Retention.temporal.id -%>
+<p>
+  <b>Retention date</b>
+  <%= @package.retention_date %>
 </p>
 <% end -%>
 

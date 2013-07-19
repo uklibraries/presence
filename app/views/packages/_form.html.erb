@@ -8,6 +8,11 @@
       <%= f.input :date, label: "When (Date)", as: :date_picker %>
       <%= f.association :access %>
       <%= f.association :retention %>
+
+      <div class="js-dependent-fields" data-select-id="package_retention_id" data-option-value="<%= Retention.temporal.id %>">
+        <%= f.input :retention_date, label: "Retain until", as: :date_picker %>
+      </div>
+
     <% end -%>
   </div>
 
