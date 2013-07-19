@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   devise :ldap_authenticatable, :registerable,
          :rememberable, :trackable, :validatable
 
+  include Blacklight::User
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :roles
   # attr_accessible :title, :body
