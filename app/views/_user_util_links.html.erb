@@ -8,9 +8,6 @@
         <% if can? :manage, Subject %>
         | <%= link_to t('blacklight.header_links.subjects'), subjects_path %>
         <% end %>
-        <% if can? :manage, User %>
-        | <%= link_to t('blacklight.header_links.manage_users'), user_index_path %>
-        <% end %>
       <% else %>
         <%= link_to t('blacklight.header_links.login'), new_user_session_path %>
       <% end %>
