@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :ldap_authenticatable, :registerable,
-         :rememberable, :trackable, :validatable
+         :trackable, :validatable
 
   include Blacklight::User
 

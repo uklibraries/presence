@@ -1,9 +1,11 @@
 # -*- encoding : utf-8 -*-
 require 'blacklight/catalog'
+require 'presence/solr_helper/authorization'
 
 class CatalogController < ApplicationController  
 
   include Blacklight::Catalog
+  include Presence::SolrHelper::Authorization
 
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
@@ -24,12 +26,12 @@ class CatalogController < ApplicationController
     #}
 
     # solr field configuration for search results/index views
-    config.index.show_link = 'what_s'
+    config.index.show_link = 'title_display'
     config.index.record_display_type = 'format'
 
     # solr field configuration for document/show views
-    config.show.html_title = 'what_s'
-    config.show.heading = 'what_s'
+    config.show.html_title = 'title_display'
+    config.show.heading = 'title_display'
     config.show.display_type = 'format'
 
     # solr fields that will be treated as facets by the blacklight application
@@ -53,7 +55,7 @@ class CatalogController < ApplicationController
     # facet bar
     config.add_facet_field 'who_s', :label => 'Who'
     config.add_facet_field 'what_s', :label => 'What'
-    config.add_facet_field 'when_i', :label => 'When'
+    config.add_facet_field 'pub_date', :label => 'When'
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -64,7 +66,7 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display 
     config.add_index_field 'who_s', :label => 'Who:'
     config.add_index_field 'what_s', :label => 'What:'
-    config.add_index_field 'when_i', :label => 'When:'
+    config.add_index_field 'when_dt', :label => 'When:'
     #config.add_index_field 'title_display', :label => 'Title:' 
     #config.add_index_field 'title_vern_display', :label => 'Title:' 
     #config.add_index_field 'author_display', :label => 'Author:' 
@@ -93,29 +95,30 @@ class CatalogController < ApplicationController
 #    config.add_show_field 'isbn_t', :label => 'ISBN:'
     config.add_show_field 'who_s', :label => 'Who:'
     config.add_show_field 'what_s', :label => 'What:'
-    config.add_show_field 'when_i', :label => 'When:'
+    config.add_show_field 'when_dt', :label => 'When:'
     #config.add_show_field 'title_s', :label => 'Title:'
-    config.add_show_field 'source_t', :label => 'Source:'
+    #config.add_show_field 'source_t', :label => 'Source:'
     #config.add_show_field 'creator_t', :label => 'Creator:'
-    config.add_show_field 'contributor_t', :label => 'Contributor:'
-    config.add_show_field 'subject_t', :label => 'Subject:'
-    config.add_show_field 'publisher_t', :label => 'Publisher:'
-    config.add_show_field 'date_original_s', :label => 'Date:'
-    config.add_show_field 'date_submit_s', :label => 'Repository Ingest Date:'
-    config.add_show_field 'date_upload_s', :label => 'Upload Date:'
-    config.add_show_field 'date_year_i', :label => 'Year:'
-    config.add_show_field 'date_terminal_s', :label => 'Terminal Date:'
-    config.add_show_field 'format_t', :label => 'Format:'
-    config.add_show_field 'identifier_s', :label => 'Identifier:'
-    config.add_show_field 'arch_identifier_s', :label => 'Archival Storage Identifier:'
-    config.add_show_field 'type_t', :label => 'Type:'
-    config.add_show_field 'language_t', :label => 'Language:'
-    config.add_show_field 'rights_t', :label => 'Rights:'
-    config.add_show_field 'description_t', :label => 'Description:'
-    config.add_show_field 'relation_s', :label => 'Relation:'
-    config.add_show_field 'coverage_t', :label => 'Coverage:'
+    #config.add_show_field 'contributor_t', :label => 'Contributor:'
+    #config.add_show_field 'subject_t', :label => 'Subject:'
+    #config.add_show_field 'publisher_t', :label => 'Publisher:'
+    #config.add_show_field 'date_original_s', :label => 'Date:'
+    #config.add_show_field 'date_submit_s', :label => 'Repository Ingest Date:'
+    #config.add_show_field 'date_upload_s', :label => 'Upload Date:'
+    #config.add_show_field 'date_year_i', :label => 'Year:'
+    #config.add_show_field 'date_terminal_s', :label => 'Terminal Date:'
+    #config.add_show_field 'format_t', :label => 'Format:'
+    #config.add_show_field 'identifier_s', :label => 'Identifier:'
+    #config.add_show_field 'arch_identifier_s', :label => 'Archival Storage Identifier:'
+    #config.add_show_field 'type_t', :label => 'Type:'
+    #config.add_show_field 'language_t', :label => 'Language:'
+    #config.add_show_field 'rights_t', :label => 'Rights:'
+    #config.add_show_field 'description_t', :label => 'Description:'
+    #config.add_show_field 'relation_s', :label => 'Relation:'
+    #config.add_show_field 'coverage_t', :label => 'Coverage:'
     config.add_show_field 'access_t', :label => 'Access:'
     config.add_show_field 'retention_t', :label => 'Retention Level:'
+    config.add_show_field 'retention_dt', :label => 'Retention Date:'
     config.add_show_field 'status_s', :label => 'Status:'
 
 

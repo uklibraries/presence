@@ -41,5 +41,7 @@
 
 <%= render 'assets/index' %>
 
+<% if can? :edit, @package -%>
 <%= link_to 'Edit', edit_package_path(@package) %> |
+<% end %>
 <%= link_to 'Back', packages_path %>

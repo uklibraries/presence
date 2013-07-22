@@ -1,4 +1,5 @@
 jQuery ->
+ $('input').tooltip()
  $('#package_subject_ids').chosen()
  $('#package_access_id').chosen()
  $('#package_format_id').chosen()

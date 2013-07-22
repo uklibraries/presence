@@ -753,7 +753,8 @@
          title_s^1000
          type_s^1000
          what_s^1000
-         when_i^1000
+         when_dt^1000
+         retention_dt^1000
          where_s^1000
          who_s^1000
        </str>
@@ -779,7 +780,8 @@
          title_s^1000
          type_s^1000
          what_s^1000
-         when_i^1000
+         when_dt^1000
+         retention_dt^1000
          where_s^1000
          who_s^1000
        </str>
@@ -840,7 +842,8 @@
        <float name="tie">0.01</float>
 
        <!-- NOT using marc_display because it is large and will slow things down for search results -->
-       <str name="fl">
+       <str name="fl">*</str>
+       <!--
          id, 
          score,
          author_display,
@@ -865,7 +868,8 @@
          date_upload_s,
          who_s,
          what_s,
-         when_i,
+         when_dt,
+         retention_dt,
          where_s,
          publisher_t,
          contributor_t,
@@ -887,6 +891,7 @@
          date_submit_t,
          description_t,
        </str>
+       -->
 
        <str name="facet">true</str>
        <str name="facet.mincount">1</str>
@@ -1058,7 +1063,8 @@
       <str name="pf_keyword">text^10</str>
       
       <!-- NOT using marc_display because it is large and will slow things down for search results -->
-      <str name="fl">
+      <str name="fl">*</str>
+      <!--
         id, 
         score,
         author_display,
@@ -1083,7 +1089,8 @@
         date_upload_s,
         who_s,
         what_s,
-        when_i,
+        when_dt,
+        retention_dt,
         where_s,
         publisher_t,
         contributor_t,
@@ -1105,6 +1112,7 @@
         date_submit_t,
         description_t,
       </str>
+      -->
       
       <str name="facet">true</str>
       <str name="facet.mincount">1</str>

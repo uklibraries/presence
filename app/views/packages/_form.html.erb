@@ -2,15 +2,16 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%# TODO: move tooltips to en.yml %>
     <%= field_set_tag "Required fields" do -%>
-      <%= f.input :creator, label: "Who (Creator)" %>
-      <%= f.input :title, label: "What (Title)" %>
-      <%= f.input :date, label: "When (Date)", as: :date_picker %>
-      <%= f.association :access %>
-      <%= f.association :retention %>
+      <%= f.input :creator, label: "Who (Creator)", tooltip: 'The person(s) or organization(s) primarily responsible for the intellectual content of the resource; the author' %>
+      <%= f.input :title, label: "What (Title)", tooltip: 'The name given to the resource by the CREATOR or PUBLISHER' %>
+      <%= f.input :date, label: "When (Date)", as: :date_picker, tooltip: 'The date the resource was created' %>
+      <%= f.association :access, tooltip: 'Defines level of accessibility appropriate for the package contents. A controlled vocabulary in the form of a drop down list is used' %>
+      <%= f.association :retention, tooltip: 'Defines whether or not something is to be kept indefinitely within the archive, or whether it is temporal in nature. If the ladder is the case, a terminal date is then required to establish when the contents life cycle will be complete' %>
 
       <div class="js-dependent-fields" data-select-id="package_retention_id" data-option-value="<%= Retention.temporal.id %>">
-        <%= f.input :retention_date, label: "Retain until", as: :date_picker %>
+        <%= f.input :retention_date, label: "Retain until", as: :date_picker, tooltip: 'Date used to establish when a given set of materials is to be removed from the archive' %>
       </div>
 
     <% end -%>
